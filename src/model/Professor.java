@@ -22,7 +22,7 @@ public class Professor extends Pessoa {
     public void setMatricula(String matricula) { this.matricula = matricula; }
     public String getDisciplina() { return disciplina; }
     public void setDisciplina(String disciplina) { this.disciplina = disciplina; }
-    public ArrayList<Turma> getTurmas() { return tu rmas; }
+    public ArrayList<Turma> getTurmas() { return turmas; }
     public void setTurmas(ArrayList<Turma> turmas) { this.turmas = turmas; }
 
     @Override

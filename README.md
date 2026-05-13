@@ -2,7 +2,7 @@
 
 Este é um projeto acadêmico desenvolvido em **Java** com o objetivo de aplicar e demonstrar os conceitos de **Programação Orientada a Objetos (POO)**. O sistema simula o gerenciamento de uma escola, permitindo o controle de alunos, professores, turmas e disciplinas.
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 *   **Gerenciamento de Alunos:** Cadastro, edição, remoção e consulta de alunos.
 *   **Gerenciamento de Professores:** Cadastro de professores e suas respectivas especialidades.
@@ -10,13 +10,13 @@ Este é um projeto acadêmico desenvolvido em **Java** com o objetivo de aplicar
 *   **Controle de Notas e Faltas:** Lançamento de notas e registro de presenças para os alunos em cada disciplina.
 *   **Geração de Boletins:** Emissão do boletim do aluno com médias e status de aprovação.
 
-## 💻 Tecnologias Utilizadas
+##  Tecnologias Utilizadas
 
 *   **Linguagem:** Java
 *   **Paradigma:** Programação Orientada a Objetos
-*   **IDE:** Visual Studio Code / Eclipse (ou qualquer IDE de sua preferência)
+*   **IDE:** Visual Studio Code 
 
-## 📚 Conceitos de POO Aplicados
+## Conceitos de POO Aplicados
 
 O projeto foi estruturado utilizando os quatro pilares fundamentais da Programação Orientada a Objetos:
 
@@ -25,7 +25,7 @@ O projeto foi estruturado utilizando os quatro pilares fundamentais da Programa�
 3.  **Herança:** Criação de classes base (como uma superclasse `Pessoa`) para compartilhar atributos comuns (nome, CPF, endereço) com subclasses (`Aluno`, `Professor`).
 4.  **Polimorfismo:** Implementação de métodos com o mesmo nome, mas comportamentos diferentes, seja através de sobrescrita (override) ou sobrecarga (overload).
 
-## 📁 Estrutura do Projeto
+##  Estrutura do Projeto
 
 O projeto segue a estrutura padrão do Java:
 
@@ -60,6 +60,6 @@ ProjetoPOO/
     java -cp bin Main
     ```
 
-## ✒️ Autor
+## Autor
 
 *   **Mateus** - *Desenvolvedor*

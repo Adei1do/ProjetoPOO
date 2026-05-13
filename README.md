@@ -45,21 +45,9 @@ ProjetoPOO/
 *   [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/downloads/) instalado na máquina (versão 11 ou superior recomendada).
 
 ### Passos
-1.  Clone o repositório ou baixe os arquivos fonte.
-2.  Abra o terminal e navegue até o diretório raiz do projeto:
-    ```bash
-    cd ProjetoPOO
-    ```
-3.  Compile os arquivos `.java` localizados na pasta `src`:
-    ```bash
-    javac -d bin src/**/*.java
-    ```
-    *(Nota: Dependendo da sua IDE, a compilação pode ser automática)*
-4.  Execute a classe principal (substitua `Main` pelo nome do pacote e classe principal, caso necessário):
-    ```bash
-    java -cp bin Main
-    ```
 
 ## Autor
 
 *   **Mateus** - *Desenvolvedor*
+*   **Adeido** - *Desenvolvedor*
+*   **JOão Pedro** - *Desenvolvedos*

@@ -13,7 +13,7 @@ Este é um projeto acadêmico desenvolvido em **Java** com o objetivo de aplicar
 ##  Tecnologias Utilizadas
 
 *   **Linguagem:** Java
-*   **Paradigma:** Programação Orientada a Objetos
+*   **Paradigma:** Programação Orientada a Objetos 
 *   **IDE:** Visual Studio Code 
 
 ## Conceitos de POO Aplicados
@@ -31,23 +31,37 @@ O projeto segue a estrutura padrão do Java:
 
 ```text
 ProjetoPOO/
-├── src/          # Código-fonte (.java)
-│   ├── models/   # Classes de modelo (Aluno, Professor, etc.)
-│   ├── views/    # Interface com o usuário (Console ou GUI)
-│   └── Main.java # Classe principal de execução
-├── bin/          # Arquivos compilados (.class)
-└── README.md     # Documentação do projeto
+├── src/               # Código-fonte (.java)
+│   ├── main/          # Classe principal de execução
+│   │   └── Main.java
+│   └── model/         # Classes de modelo (Aluno, Professor, etc.)
+│       ├── Aluno.java
+│       ├── Professor.java
+│       ├── Turma.java
+│       └── ...
+└── README.md          # Documentação do projeto
 ```
-
-## ⚙️ Como Executar
 
 ### Pré-requisitos
 *   [Java Development Kit (JDK)](https://www.oracle.com/java/technologies/downloads/) instalado na máquina (versão 11 ou superior recomendada).
 
-### Passos
+### Passos para executar
 
-## Autor
+1. **Navegue até o diretório do projeto:**
+   ```bash
+   cd ProjetoPOO
+   ```
+
+2. **Compile e execute o programa:**
+   ```bash
+   javac -sourcepath src src/main/Main.java && java -cp src main.Main
+   ```
+
+   Explicação do comando:
+   - `javac -sourcepath src src/main/Main.java` - Compila o arquivo Main.java, buscando classes dependentes no diretório src
+   - `java -cp src main.Main` - Executa a classe Main com o classpath definido para src
+## Autores
 
 *   **Mateus** - *Desenvolvedor*
 *   **Adeido** - *Desenvolvedor*
-*   **JOão Pedro** - *Desenvolvedos*
+*   **João Pedro** - *Desenvolvedor*

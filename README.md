@@ -65,3 +65,5 @@ ProjetoPOO/
 *   **Mateus** - *Desenvolvedor*
 *   **Adeido** - *Desenvolvedor*
 *   **João Pedro** - *Desenvolvedor*
+*   **Pedro Lucas** - *Desenvolvedor*
+  

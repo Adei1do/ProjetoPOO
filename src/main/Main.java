@@ -1,3 +1,8 @@
+/*Aluno: Mateus Fernandes - 202421901047
+Aluno: Adeildo Lopes Mateus Júnior - 202421091016
+Aluno: Pedro Lucas Costa de Almeida - 202421091065 */
+
+
 package main;
 
 import model.Aluno;

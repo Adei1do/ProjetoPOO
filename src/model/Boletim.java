@@ -13,7 +13,7 @@ public class Boletim {
     }
 
     public void adicionarNota(String disciplina, double nota1, double nota2, double nota3, double media) {
-        this.notas.put(disciplina, new Nota(disciplina, nota1, nota2, nota3, media));
+        this.notas.put(disciplina, new Nota(null, null, media));
     }
 
     public Nota getNota(String disciplina) {

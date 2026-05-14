@@ -1,20 +1,20 @@
-package main;
+package model;
 
-public class Responsavel extends Pessoa {
-    private String parentesco;
+public class Direcao extends Pessoa {
+    private String funcao;
     
-    public Responsavel(String nome, String cpf, String endereco, String telefone, String email, String parentesco) {
+    public Direcao(String nome, String cpf, String endereco, String telefone, String email, String funcao) {
         super(nome, cpf, endereco, telefone, email);
-        this.parentesco = parentesco;
+        this.funcao = funcao;
     }
-    public String getParentesco() {
-        return parentesco;
+    public String getFuncao() {
+        return funcao;
     }
-    public void setParentesco(String parentesco) {
-        this.parentesco = parentesco;
+    public void setFuncao(String funcao) {
+        this.funcao = funcao;
     }
     @Override
     public String toString() {
-        return "Responsavel [nome=" + getNome() + ", cpf=" + getCpf() + ", endereco=" + getEndereco() + ", telefone=" + getTelefone() + ", email=" + getEmail() + ", parentesco=" + parentesco + "]";
+        return "Direcao [nome=" + getNome() + ", cpf=" + getCpf() + ", endereco=" + getEndereco() + ", telefone=" + getTelefone() + ", email=" + getEmail() + ", funcao=" + funcao + "]";
     }   
 }   

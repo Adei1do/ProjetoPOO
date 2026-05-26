@@ -26,7 +26,7 @@ public class Professor extends Pessoa {
     public void setTurmas(ArrayList<Turma> turmas) { this.turmas = turmas; }
 
     @Override
-    public String toString() {
-        return "Professor [matricula=" + matricula + ", disciplina=" + disciplina + ", turmas=" + turmas + "]";
+    public String apresentar() {
+    return "Professor(a): " + getNome() + " | Disciplina: " + getDisciplina() + " | Matrícula: " + getMatricula();
     }
 }

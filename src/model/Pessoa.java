@@ -13,6 +13,7 @@ public abstract class Pessoa {
         this.endereco = endereco;
         this.telefone = telefone;
         this.email = email;
+
     }
 
     public String getNome() { return nome; }
@@ -25,4 +26,5 @@ public abstract class Pessoa {
     public void setTelefone(String telefone) { this.telefone = telefone; }
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
+    public abstract String apresentar();
 }   

@@ -15,4 +15,8 @@ public class Secretaria extends Pessoa {
     public String toString() {
         return "Secretaria [nome=" + getNome() + ", cpf=" + getCpf() + ", endereco=" + getEndereco() + ", telefone=" + getTelefone() + ", email=" + getEmail() + ", matricula=" + matricula + "]";
     }
+    @Override
+    public String apresentar() {
+    return "Secretaria: " + getNome() + " | Matrícula: " + matricula;
+    }
 }

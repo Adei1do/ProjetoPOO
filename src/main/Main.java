@@ -4,8 +4,10 @@ Aluno: Pedro Lucas Costa de Almeida - 202421901065 */
 
 
 package main;
+import java.util.ArrayList;
 
 import model.Aluno;
+import model.Pessoa;
 import model.Professor;
 import model.Turma;
 
@@ -91,5 +93,18 @@ public class Main {
         System.out.println("- Professor(a) de " + profAna.getDisciplina() + ": " + profAna.getNome());
         
         System.out.println("==============================================");
+        System.out.println("   LISTA DE PESSOAS CADASTRADAS NO SISTEMA   ");
+        System.out.println("==============================================");
+
+        ArrayList<Pessoa> pessoas = new ArrayList<>();
+        pessoas.add(mateus);
+        pessoas.add(adeiodo);
+        pessoas.add(profJose);
+        pessoas.add(profMaria);
+        pessoas.add(profAna);
+
+        for (Pessoa p : pessoas) {
+        System.out.println(p.apresentar());
+        }
     }
 }

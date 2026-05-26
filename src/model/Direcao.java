@@ -17,4 +17,8 @@ public class Direcao extends Pessoa {
     public String toString() {
         return "Direcao [nome=" + getNome() + ", cpf=" + getCpf() + ", endereco=" + getEndereco() + ", telefone=" + getTelefone() + ", email=" + getEmail() + ", funcao=" + funcao + "]";
     }   
+    @Override
+    public String apresentar() {
+    return "Direção: " + getNome() + " | Função: " + funcao;
+    }
 }   

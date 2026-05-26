@@ -23,4 +23,8 @@ public class Aluno extends Pessoa {
     public String toString() {
         return "Aluno [nome=" + getNome() + ", cpf=" + getCpf() + ", endereco=" + getEndereco() + ", telefone=" + getTelefone() + ", email=" + getEmail() + ", ra=" + ra + ", turma=" + (turma != null ? turma.getCodigo() : "Nenhuma") + ", periodo=" + periodo + "]";
     }
+    @Override
+    public String apresentar() {
+    return "Aluno: " + getNome() + " | RA: " + ra + " | Turma: " + (turma != null ? turma.getCodigo() : "Nenhuma") + " | Período: " + periodo;
+    }
 }           

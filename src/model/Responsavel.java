@@ -16,5 +16,9 @@ public class Responsavel extends Pessoa {
     @Override
     public String toString() {
         return "Responsavel [nome=" + getNome() + ", cpf=" + getCpf() + ", endereco=" + getEndereco() + ", telefone=" + getTelefone() + ", email=" + getEmail() + ", parentesco=" + parentesco + "]";
-    }   
+    } 
+    @Override
+    public String apresentar() {
+    return "Responsável: " + getNome() + " | Parentesco: " + parentesco;
+    }  
 }   

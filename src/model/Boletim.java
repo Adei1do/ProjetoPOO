@@ -1,32 +1,40 @@
 package model;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
 
 public class Boletim {
-    private String ra;
-    private Map<String, Nota> notas;
+    private String raAluno;
+    private ArrayList<Nota> notas;
 
-    public Boletim(String ra) {
-        this.ra = ra;
-        this.notas = new HashMap<>();
+    public Boletim(String raAluno) {
+        this.raAluno = raAluno;
+        this.notas = new ArrayList<>();
     }
 
-    public void adicionarNota(String disciplina, double nota1, double nota2, double nota3, double media) {
-        this.notas.put(disciplina, new Nota(null, null, media));
+    public void adicionarNota(Nota nota) {
+        this.notas.add(nota);
     }
 
-    public Nota getNota(String disciplina) {
-        return notas.get(disciplina);
+    public void removerNota(Nota nota) {
+        this.notas.remove(nota);
+    }
+    
+    public ArrayList<Nota> getNotas() { return notas; }
+    public double calcularMedia() {
+        if (notas.isEmpty()) return 0;
+        double soma = 0;
+        for (Nota n : notas) {
+            soma += n.getValor();
+        }
+        return soma / notas.size();
     }
 
-    public String getRa() { return ra; }
-    public void setRa(String ra) { this.ra = ra; }
-    public Map<String, Nota> getNotas() { return notas; }
-    public void setNotas(Map<String, Nota> notas) { this.notas = notas; }
+    public String getRaAluno() { return raAluno; }
+    public void setRaAluno(String raAluno) { this.raAluno = raAluno; }
+    public void setNotas(ArrayList<Nota> notas) { this.notas = notas; }
 
     @Override
     public String toString() {
-        return "Boletim [ra=" + ra + ", notas=" + notas + "]";
+        return "Boletim [ra=" + raAluno + ", notas=" + notas.size() + ", média=" + calcularMedia() + "]";
     }
 }

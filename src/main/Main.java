@@ -98,45 +98,45 @@ public class Main {
             // CADASTRAR ALUNO
 
             } else if (opcao.equals("3")) {
-                 // Dados do responsável
-            String nomeResp   = JOptionPane.showInputDialog("Nome do responsável:");
-            String cpfResp    = JOptionPane.showInputDialog("CPF do responsável:");
-            String endResp    = JOptionPane.showInputDialog("Endereço do responsável:");
-            String telResp    = JOptionPane.showInputDialog("Telefone do responsável:");
-            String emailResp  = JOptionPane.showInputDialog("E-mail do responsável:");
-            String parentesco = JOptionPane.showInputDialog("Parentesco:");
+                // Dados do responsável
+                String nomeResp   = JOptionPane.showInputDialog("Nome do responsável:");
+                String cpfResp    = JOptionPane.showInputDialog("CPF do responsável:");
+                String endResp    = JOptionPane.showInputDialog("Endereço do responsável:");
+                String telResp    = JOptionPane.showInputDialog("Telefone do responsável:");
+                String emailResp  = JOptionPane.showInputDialog("E-mail do responsável:");
+                String parentesco = JOptionPane.showInputDialog("Parentesco:");
 
-            Responsavel responsavel = new Responsavel(nomeResp, cpfResp, endResp, telResp, emailResp, parentesco);
+                Responsavel responsavel = new Responsavel(nomeResp, cpfResp, endResp, telResp, emailResp, parentesco);
 
                 // Dados exclusivos do aluno (endereço e telefone vêm do responsável)
-            String nomeAluno  = JOptionPane.showInputDialog("Nome do aluno:");
-            String cpfAluno   = JOptionPane.showInputDialog("CPF do aluno:");
-            String emailAluno = JOptionPane.showInputDialog("E-mail do aluno:");
-            String ra         = JOptionPane.showInputDialog("RA:");
-            String codTurma   = JOptionPane.showInputDialog("Código da turma:");
-            int periodo       = Integer.parseInt(JOptionPane.showInputDialog("Período:"));
+                String nomeAluno  = JOptionPane.showInputDialog("Nome do aluno:");
+                String cpfAluno   = JOptionPane.showInputDialog("CPF do aluno:");
+                String emailAluno = JOptionPane.showInputDialog("E-mail do aluno:");
+                String ra         = JOptionPane.showInputDialog("RA:");
+                String codTurma   = JOptionPane.showInputDialog("Código da turma:");
+                int periodo       = Integer.parseInt(JOptionPane.showInputDialog("Período:"));
 
                 // Busca turma já cadastrada
-            Turma turmaSelecionada = null;
-            for (Turma t : diretor.getTurmas()) {
-                if (t.getCodigo().equals(codTurma)) {
-                    turmaSelecionada = t;
-                    break;
+                Turma turmaSelecionada = null;
+                for (Turma t : diretor.getTurmas()) {
+                    if (t.getCodigo().equals(codTurma)) {
+                        turmaSelecionada = t;
+                        break;
+                    }
                 }
-            }
 
-            if (turmaSelecionada == null) {
-                JOptionPane.showMessageDialog(null, "Turma não encontrada! Cadastre a turma primeiro.");
+                if (turmaSelecionada == null) {
+                    JOptionPane.showMessageDialog(null, "Turma não encontrada! Cadastre a turma primeiro.");
+                } else {
+                    // Reusa endereço e telefone do responsável
+                    Aluno aluno = new Aluno(nomeAluno, cpfAluno, endResp, telResp, emailAluno, ra, turmaSelecionada, periodo);
+                    diretor.cadastrarAluno(aluno, responsavel);
+                    JOptionPane.showMessageDialog(null, "Aluno cadastrado: " + nomeAluno + "\nResponsável: " + nomeResp);
+                }
+
             } else {
-                // Reusa endereço e telefone do responsável
-                Aluno aluno = new Aluno(nomeAluno, cpfAluno, endResp, telResp, emailAluno, ra, turmaSelecionada, periodo);
-                diretor.cadastrarAluno(aluno, responsavel);
-                JOptionPane.showMessageDialog(null, "Aluno cadastrado: " + nomeAluno + "\nResponsável: " + nomeResp);
+                JOptionPane.showMessageDialog(null, "Opção inválida!");
             }
-
-        } else {
-            JOptionPane.showMessageDialog(null, "Opção inválida!");
-        }
         }
 
         JOptionPane.showMessageDialog(null, "Sistema encerrado.");

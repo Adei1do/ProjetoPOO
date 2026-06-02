@@ -6,11 +6,13 @@ public class Turma {
     private String codigo;
     private int ano;
     private ArrayList<Aluno> alunos;
+    private ArrayList<Disciplina> disciplinas;
 
     public Turma(String codigo, int ano) {
         this.codigo = codigo;
         this.ano = ano;
         this.alunos = new ArrayList<>();
+        this.disciplinas = new ArrayList<>();
     }
 
     public String getCodigo() { return codigo; }
@@ -27,9 +29,20 @@ public class Turma {
     public void removerAluno(Aluno aluno) {
         this.alunos.remove(aluno);
     }
+    
+    public void adicionarDisciplina(Disciplina disciplina) {
+        this.disciplinas.add(disciplina);
+    }
+    
+    public void removerDisciplina(Disciplina disciplina) {
+        this.disciplinas.remove(disciplina);
+    }
+    
+    public ArrayList<Disciplina> getDisciplinas() { return disciplinas; }
+    public void setDisciplinas(ArrayList<Disciplina> disciplinas) { this.disciplinas = disciplinas; }
 
     @Override
     public String toString() {
-        return "Turma [codigo=" + codigo + ", ano=" + ano + ", total de alunos=" + alunos.size() + "]";
+        return "Turma [codigo=" + codigo + ", ano=" + ano + ", alunos=" + alunos.size() + ", disciplinas=" + disciplinas.size() + "]";
     }
 }

@@ -81,22 +81,22 @@ public class Main {
             // CADASTRAR PROFESSOR
 
             } else if (opcao.equals("2")) {
-                String nome      = JOptionPane.showInputDialog("Nome do professor:");
-                String cpf       = JOptionPane.showInputDialog("CPF:");
-                String endereco  = JOptionPane.showInputDialog("Endereço:");
-                String telefone  = JOptionPane.showInputDialog("Telefone:");
-                String email     = JOptionPane.showInputDialog("E-mail:");
-                String matricula = JOptionPane.showInputDialog("Matrícula:");
-                String disciplina = JOptionPane.showInputDialog("Disciplina:");
+            String nome       = JOptionPane.showInputDialog("Nome do professor:");
+            String cpf        = JOptionPane.showInputDialog("CPF:");
+            String endereco   = JOptionPane.showInputDialog("Endereço:");
+            String telefone   = JOptionPane.showInputDialog("Telefone:");
+            String email      = JOptionPane.showInputDialog("E-mail:");
+            String matricula  = JOptionPane.showInputDialog("Matrícula:");
+            String nomeDisciplina = JOptionPane.showInputDialog("Disciplina:");
+            String codDisciplina  = JOptionPane.showInputDialog("Código da disciplina:");
 
-                Professor professor = new Professor(nome, cpf, endereco, telefone, email, matricula, disciplina);
-                diretor.cadastrarProfessor(professor);
+            // Cria o objeto Disciplina antes de criar o Professor
+            Disciplina disciplina = new Disciplina(nomeDisciplina, codDisciplina, 0);
 
-                JOptionPane.showMessageDialog(null, "Professor cadastrado: " + nome);
+            Professor professor = new Professor(nome, cpf, endereco, telefone, email, matricula, disciplina);
+            diretor.cadastrarProfessor(professor);
 
-
-            // CADASTRAR ALUNO
-
+            JOptionPane.showMessageDialog(null, "Professor cadastrado: " + nome);
             } else if (opcao.equals("3")) {
                 // Dados do responsável
                 String nomeResp   = JOptionPane.showInputDialog("Nome do responsável:");

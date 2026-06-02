@@ -4,107 +4,141 @@ Aluno: Pedro Lucas Costa de Almeida - 202421901065 */
 
 
 package main;
-import java.util.ArrayList;
 
-import model.Aluno;
-import model.Pessoa;
-import model.Professor;
-import model.Turma;
+import javax.swing.*;
+import model.*;
 
 public class Main {
     public static void main(String[] args) {
-        Turma turma1A = new Turma("primeiro Ano A", 1);
 
-        Aluno mateus = new Aluno(
-            "Mateus Fernandes da Silva", 
-            "111.111.111-11", 
-            "Rua A", 
-            "1111-1111", 
-            "mateus@email.com", 
-            "MAT01", 
-            turma1A, 
-            1
+        // LOGIN
+        JTextField campoUsuario = new JTextField();
+        JPasswordField campoSenha = new JPasswordField();
+
+        Object[] camposLogin = {
+            "Usuário:", campoUsuario,
+            "Senha:", campoSenha
+        };
+
+        int opcaoLogin = JOptionPane.showConfirmDialog(
+            null,
+            camposLogin,
+            "Login - Sistema Escolar",
+            JOptionPane.OK_CANCEL_OPTION
         );
 
-        Aluno adeiodo = new Aluno(
-            "Adeiodo Lopez da Silva", 
-            "222.222.222-22", 
-            "Rua B", 
-            "2222-2222", 
-            "adeiodo@email.com", 
-            "MAT02", 
-            turma1A, 
-            1
-        );
-
-        turma1A.adicionarAluno(mateus);
-        turma1A.adicionarAluno(adeiodo);
-
-        Professor profJose = new Professor(
-            "José", 
-            "333.333.333-33", 
-            "Rua C", 
-            "3333-3333", 
-            "jose@escola.com", 
-            "PROF01", 
-            "Matemática"
-        );
-
-        Professor profMaria = new Professor(
-            "Maria", 
-            "444.444.444-44", 
-            "Rua D", 
-            "4444-4444", 
-            "maria@escola.com", 
-            "PROF02", 
-            "Inglês"
-        );
-
-        Professor profAna = new Professor(
-            "Ana", 
-            "555.555.555-55", 
-            "Rua E", 
-            "5555-5555", 
-            "ana@escola.com", 
-            "PROF03", 
-            "Português"
-        );
-
-        profJose.adicionarTurma(turma1A);
-        profMaria.adicionarTurma(turma1A);
-        profAna.adicionarTurma(turma1A);
-
-        System.out.println("==============================================");
-        System.out.println("        RELATÓRIO DO SISTEMA ESCOLAR        ");
-        System.out.println("==============================================");
-        
-        System.out.println("\n--- TURMA ---");
-        System.out.println("Nome: " + turma1A.getCodigo());
-
-        System.out.println("\n--- ALUNOS MATRICULADOS ---");
-        System.out.println("- " + mateus.getNome() + " (Turma: " + mateus.getTurma().getCodigo() + ")");
-        System.out.println("- " + adeiodo.getNome() + " (Turma: " + adeiodo.getTurma().getCodigo() + ")");
-        
-        System.out.println("\nDisciplinas cursadas pela turma: Matemática, Português e Inglês.");
-
-        System.out.println("\n--- PROFESSORES ---");
-        System.out.println("- Professor(a) de " + profJose.getDisciplina() + ": " + profJose.getNome());
-        System.out.println("- Professor(a) de " + profMaria.getDisciplina() + ": " + profMaria.getNome());
-        System.out.println("- Professor(a) de " + profAna.getDisciplina() + ": " + profAna.getNome());
-        
-        System.out.println("==============================================");
-        System.out.println("   LISTA DE PESSOAS CADASTRADAS NO SISTEMA   ");
-        System.out.println("==============================================");
-
-        ArrayList<Pessoa> pessoas = new ArrayList<>();
-        pessoas.add(mateus);
-        pessoas.add(adeiodo);
-        pessoas.add(profJose);
-        pessoas.add(profMaria);
-        pessoas.add(profAna);
-
-        for (Pessoa p : pessoas) {
-        System.out.println(p.apresentar());
+        if (opcaoLogin != JOptionPane.OK_OPTION) {
+            JOptionPane.showMessageDialog(null, "Acesso cancelado.");
+            return;
         }
+
+        String usuario = campoUsuario.getText();
+        String senha = new String(campoSenha.getPassword());
+
+        if (!usuario.equals("direcao") || !senha.equals("1234")) {
+            JOptionPane.showMessageDialog(null, "Usuário ou senha incorretos!");
+            return;
+        }
+
+        JOptionPane.showMessageDialog(null, "Login realizado com sucesso!\nBem-vindo(a), " + usuario);
+
+        // DIRETOR LOGADO
+        Direcao diretor = new Direcao(
+            "Carlos Silva", "666.666.666-66",
+            "Rua F", "6666-6666",
+            "carlos@escola.com", "Diretor"
+        );
+
+        // MENU PRINCIPAL
+        boolean rodando = true;
+
+        while (rodando) {
+            String opcao = JOptionPane.showInputDialog(
+                "=== MENU - DIREÇÃO ===\n\n" +
+                "1 - Cadastrar Turma\n" +
+                "2 - Cadastrar Professor\n" +
+                "3 - Cadastrar Aluno\n" +
+                "4 - Sair"
+            );
+
+            if (opcao == null || opcao.equals("4")) {
+                rodando = false;
+
+
+            // CADASTRAR TURMA
+
+            } else if (opcao.equals("1")) {
+                String nomeTurma = JOptionPane.showInputDialog("Nome da turma:");
+                String anoTexto = JOptionPane.showInputDialog("Ano da turma:");
+                int ano = Integer.parseInt(anoTexto);
+
+                Turma turma = new Turma(nomeTurma, ano);
+                diretor.cadastrarTurma(turma);
+
+                JOptionPane.showMessageDialog(null, "Turma cadastrada: " + nomeTurma);
+
+
+            // CADASTRAR PROFESSOR
+
+            } else if (opcao.equals("2")) {
+                String nome      = JOptionPane.showInputDialog("Nome do professor:");
+                String cpf       = JOptionPane.showInputDialog("CPF:");
+                String endereco  = JOptionPane.showInputDialog("Endereço:");
+                String telefone  = JOptionPane.showInputDialog("Telefone:");
+                String email     = JOptionPane.showInputDialog("E-mail:");
+                String matricula = JOptionPane.showInputDialog("Matrícula:");
+                String disciplina = JOptionPane.showInputDialog("Disciplina:");
+
+                Professor professor = new Professor(nome, cpf, endereco, telefone, email, matricula, disciplina);
+                diretor.cadastrarProfessor(professor);
+
+                JOptionPane.showMessageDialog(null, "Professor cadastrado: " + nome);
+
+
+            // CADASTRAR ALUNO
+
+            } else if (opcao.equals("3")) {
+                 // Dados do responsável
+            String nomeResp   = JOptionPane.showInputDialog("Nome do responsável:");
+            String cpfResp    = JOptionPane.showInputDialog("CPF do responsável:");
+            String endResp    = JOptionPane.showInputDialog("Endereço do responsável:");
+            String telResp    = JOptionPane.showInputDialog("Telefone do responsável:");
+            String emailResp  = JOptionPane.showInputDialog("E-mail do responsável:");
+            String parentesco = JOptionPane.showInputDialog("Parentesco:");
+
+            Responsavel responsavel = new Responsavel(nomeResp, cpfResp, endResp, telResp, emailResp, parentesco);
+
+                // Dados exclusivos do aluno (endereço e telefone vêm do responsável)
+            String nomeAluno  = JOptionPane.showInputDialog("Nome do aluno:");
+            String cpfAluno   = JOptionPane.showInputDialog("CPF do aluno:");
+            String emailAluno = JOptionPane.showInputDialog("E-mail do aluno:");
+            String ra         = JOptionPane.showInputDialog("RA:");
+            String codTurma   = JOptionPane.showInputDialog("Código da turma:");
+            int periodo       = Integer.parseInt(JOptionPane.showInputDialog("Período:"));
+
+                // Busca turma já cadastrada
+            Turma turmaSelecionada = null;
+            for (Turma t : diretor.getTurmas()) {
+                if (t.getCodigo().equals(codTurma)) {
+                    turmaSelecionada = t;
+                    break;
+                }
+            }
+
+            if (turmaSelecionada == null) {
+                JOptionPane.showMessageDialog(null, "Turma não encontrada! Cadastre a turma primeiro.");
+            } else {
+                // Reusa endereço e telefone do responsável
+                Aluno aluno = new Aluno(nomeAluno, cpfAluno, endResp, telResp, emailAluno, ra, turmaSelecionada, periodo);
+                diretor.cadastrarAluno(aluno, responsavel);
+                JOptionPane.showMessageDialog(null, "Aluno cadastrado: " + nomeAluno + "\nResponsável: " + nomeResp);
+            }
+
+        } else {
+            JOptionPane.showMessageDialog(null, "Opção inválida!");
+        }
+        }
+
+        JOptionPane.showMessageDialog(null, "Sistema encerrado.");
     }
 }

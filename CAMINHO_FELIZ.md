@@ -1,5 +1,7 @@
 # 🎯 Caminho Feliz - Sistema Escolar POO
 
+## Usuário: direcao / senha: 1234
+
 ## Estrutura de Classes
 
 ```

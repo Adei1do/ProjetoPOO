@@ -10,6 +10,9 @@ public class Aluno extends Pessoa {
     
     public Aluno(String nome, String cpf, String endereco, String telefone, String email, String ra, Turma turma, int periodo) {
         super(nome, cpf, endereco, telefone, email);
+        if (ra == null || ra.trim().isEmpty()) {
+            throw new exceptions.DadoInvalidoException("O RA não pode ser nulo ou vazio.");
+        }
         this.ra = ra;
         this.turma = turma;
         this.periodo = periodo;

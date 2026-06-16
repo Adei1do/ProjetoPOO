@@ -23,10 +23,16 @@ public class Turma {
     public void setAlunos(ArrayList<Aluno> alunos) { this.alunos = alunos; }
 
     public void adicionarAluno(Aluno aluno) {
+        if (this.alunos.contains(aluno)) {
+            throw new exceptions.MatriculaInvalidaException("Aluno já matriculado nesta turma.");
+        }
         this.alunos.add(aluno);
     }
 
     public void removerAluno(Aluno aluno) {
+        if (!this.alunos.contains(aluno)) {
+            throw new exceptions.MatriculaInvalidaException("Não é possível remover: aluno não encontrado nesta turma.");
+        }
         this.alunos.remove(aluno);
     }
     

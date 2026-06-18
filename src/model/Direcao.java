@@ -22,20 +22,31 @@ public class Direcao extends Pessoa implements IGestaoEscolar{
 
     @Override
     public void cadastrarAluno(Aluno aluno, Responsavel responsavel) {
-    alunos.add(aluno);
-    System.out.println("Aluno cadastrado: " + aluno.getNome() + " | Responsável: " + responsavel.getNome());
+        alunos.add(aluno);
+        System.out.println("\n[LOG] >>> ALUNO CADASTRADO COM SUCESSO <<<");
+        System.out.println("  - " + aluno.apresentar());
+        System.out.println("  - " + responsavel.apresentar());
+        System.out.println("  - CPF Aluno: " + aluno.getCpf() + " | CPF Resp: " + responsavel.getCpf());
+        System.out.println("  - E-mail Aluno: " + aluno.getEmail() + " | Tel: " + aluno.getTelefone());
+        System.out.println("----------------------------------------");
     }
 
     @Override
     public void cadastrarProfessor(Professor professor) {
-    professores.add(professor);
-    System.out.println("Professor cadastrado: " + professor.getNome());
+        professores.add(professor);
+        System.out.println("\n[LOG] >>> PROFESSOR CADASTRADO COM SUCESSO <<<");
+        System.out.println("  - " + professor.apresentar());
+        System.out.println("  - CPF: " + professor.getCpf());
+        System.out.println("  - E-mail: " + professor.getEmail() + " | Tel: " + professor.getTelefone());
+        System.out.println("----------------------------------------");
     }
 
     @Override
     public void cadastrarTurma(Turma turma) {
-    turmas.add(turma);
-    System.out.println("Turma cadastrada: " + turma.getCodigo());
+        turmas.add(turma);
+        System.out.println("\n[LOG] >>> TURMA CADASTRADA COM SUCESSO <<<");
+        System.out.println("  - " + turma.toString());
+        System.out.println("----------------------------------------");
     }
 
     @Override

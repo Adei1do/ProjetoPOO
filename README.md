@@ -63,7 +63,6 @@ ProjetoPOO/
 ## Autores
 
 *   **Mateus** - *Desenvolvedor*
-*   **Adeido** - *Desenvolvedor*
-*   **João Pedro** - *Desenvolvedor*
+*   **Adeido Lopes** - *Desenvolvedor*
 *   **Pedro Lucas** - *Desenvolvedor*
   

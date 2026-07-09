@@ -4,11 +4,11 @@ Aluno: Pedro Lucas Costa de Almeida - 202421901065 */
 
 package main;
 
+import java.awt.*;
+import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
-import java.awt.*;
-import java.awt.event.*;
 import model.*;
 import service.RelatorioService;
 
@@ -38,10 +38,26 @@ public class Main {
         return val;
     }
 
+    // === TESTE DE CONEXÃO COM O DOCKER ===
+    private static void testarConexao() {
+        java.sql.Connection testeConn = ConexaoBanco.getConexao();
+        if (testeConn != null) {
+            System.out.println("Sua aplicação Java conectou com sucesso ao MySQL no Docker!");
+            try {
+                testeConn.close();
+            } catch (java.sql.SQLException e) {
+                System.err.println("Erro ao fechar conexão: " + e.getMessage());
+            }
+        } else {
+            System.err.println("Falha crítica: Não foi possível conectar ao banco de dados.");
+        }
+    }
+
     // melhoria 4: máscara de CPF
     private static JTextField campoCpf() {
         JTextField f = campo();
         f.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyReleased(KeyEvent e) {
                 String t = f.getText().replaceAll("[^0-9]", "");
                 if (t.length() > 11) t = t.substring(0, 11);
@@ -60,6 +76,7 @@ public class Main {
     private static JTextField campoTelefone() {
         JTextField f = campo();
         f.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyReleased(KeyEvent e) {
                 String t = f.getText().replaceAll("[^0-9]", "");
                 if (t.length() > 11) t = t.substring(0, 11);
@@ -78,6 +95,7 @@ public class Main {
     private static JTextField campoNumerico() {
         JTextField f = campo();
         f.addKeyListener(new KeyAdapter() {
+            @Override
             public void keyReleased(KeyEvent e) {
                 String t = f.getText().replaceAll("[^0-9]", "");
                 f.setText(t);
@@ -217,6 +235,7 @@ public class Main {
             return;
         }
         sucesso("Login realizado com sucesso!\nBem-vindo(a), " + usuario);
+        testarConexao();
 
         // DADOS INICIAIS
         try {
@@ -434,7 +453,6 @@ public class Main {
                             int retry = JOptionPane.showConfirmDialog(null,
                                 "Aluno com CPF \"" + fCpf.getText() + "\" não encontrado.\nDeseja buscar novamente?",
                                 "Não Encontrado", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-                            if (retry == JOptionPane.YES_OPTION) continue;
                         }
                         break;
                     }

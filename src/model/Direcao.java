@@ -23,6 +23,7 @@ public class Direcao extends Pessoa implements IGestaoEscolar{
     @Override
     public void cadastrarAluno(Aluno aluno, Responsavel responsavel) {
         alunos.add(aluno);
+        aluno.adicionarResponsavel(responsavel);
         System.out.println("\n[LOG] >>> ALUNO CADASTRADO COM SUCESSO <<<");
         System.out.println("  - " + aluno.apresentar());
         System.out.println("  - " + responsavel.apresentar());

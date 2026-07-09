@@ -25,7 +25,7 @@ public class Main {
         return f;
     }
 
-    // melhoria 3: destaca campo em vermelho se vazio
+    //destaca campo em vermelho se vazio
     private static String ler(JTextField campo, String nomeCampo) {
         String val = campo.getText().trim();
         if (val.isEmpty()) {
@@ -53,7 +53,7 @@ public class Main {
         }
     }
 
-    // melhoria 4: máscara de CPF
+    //máscara de CPF
     private static JTextField campoCpf() {
         JTextField f = campo();
         f.addKeyListener(new KeyAdapter() {
@@ -72,7 +72,7 @@ public class Main {
         return f;
     }
 
-    // melhoria 4: máscara de telefone
+    //máscara de telefone
     private static JTextField campoTelefone() {
         JTextField f = campo();
         f.addKeyListener(new KeyAdapter() {
@@ -91,7 +91,7 @@ public class Main {
         return f;
     }
 
-    // melhoria 4: campo só aceita números
+    //campo só aceita números
     private static JTextField campoNumerico() {
         JTextField f = campo();
         f.addKeyListener(new KeyAdapter() {
@@ -105,7 +105,7 @@ public class Main {
         return f;
     }
 
-    // melhoria 1: menu com botões clicáveis
+    //menu com botões clicáveis
     private static String exibirMenu() {
         final String[] escolha = {null};
 
@@ -150,12 +150,12 @@ public class Main {
         return escolha[0];
     }
 
-    // melhoria 7: mensagem de sucesso com ícone verde
+    //mensagem de sucesso com ícone verde
     private static void sucesso(String msg) {
         JOptionPane.showMessageDialog(null, msg, "Sucesso", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    // melhoria 6: confirmação ao cancelar
+    //confirmação ao cancelar
     private static boolean confirmarCancelamento() {
         int r = JOptionPane.showConfirmDialog(null,
             "Deseja realmente cancelar?\nOs dados preenchidos serão perdidos.",
@@ -163,7 +163,7 @@ public class Main {
         return r == JOptionPane.YES_OPTION;
     }
 
-    // melhoria 5: dropdown de turmas cadastradas
+    //dropdown de turmas cadastradas
     private static Turma escolherTurma(Direcao diretor) {
         ArrayList<Turma> turmas = diretor.getTurmas();
         if (turmas.isEmpty()) return null;
@@ -177,7 +177,7 @@ public class Main {
         return turmas.get(java.util.Arrays.asList(nomes).indexOf(escolha));
     }
 
-    // melhoria 9: relatório com filtro
+    //relatório com filtro
     private static void exibirRelatorio(Direcao diretor) {
         String[] filtros = {"Tudo", "Somente Turmas", "Somente Professores", "Somente Alunos"};
         String filtro = (String) JOptionPane.showInputDialog(
@@ -449,7 +449,7 @@ public class Main {
                             ta.setEditable(false);
                             JOptionPane.showMessageDialog(null, new JScrollPane(ta), "Detalhes do Aluno", JOptionPane.INFORMATION_MESSAGE);
                         } else {
-                            // melhoria 8: oferecer nova tentativa
+                            //oferecer nova tentativa
                             int retry = JOptionPane.showConfirmDialog(null,
                                 "Aluno com CPF \"" + fCpf.getText() + "\" não encontrado.\nDeseja buscar novamente?",
                                 "Não Encontrado", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
